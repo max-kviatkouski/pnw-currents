@@ -2,10 +2,14 @@ import React, {Component} from 'react';
 import './App.css';
 import TopNav from './TopNav.js';
 import RegionMap from "./RegionMap";
+import SearchForm from "./SearchForm";
 
 class App extends Component {
     constructor(props) {
         super(props);
+        this.state = {
+            pageContent: <RegionMap/>
+        }
         this.handlePageChange = this.handlePageChange.bind(this);
         this.loadPageComponents = this.loadPageComponents.bind(this);
     }
@@ -15,7 +19,15 @@ class App extends Component {
     }
 
     loadPageComponents(pageName) {
-        alert('Should load page components here! ' + pageName);
+        if (pageName === 'map') {
+            this.setState({
+                pageContent: <RegionMap/>
+            })
+        } else if (pageName === 'filter') {
+            this.setState({
+                pageContent: <SearchForm/>
+            });
+        }
     }
 
     render() {
@@ -26,7 +38,7 @@ class App extends Component {
                         onPageChange={this.handlePageChange}/>
                 </header>
                 <section id="one" className="wrapper special">
-                    <RegionMap/>
+                    {this.state.pageContent}
                 </section>
                 <p className="App-intro">
                     To get started, edit <code>src/App.js</code> and save to reload.
