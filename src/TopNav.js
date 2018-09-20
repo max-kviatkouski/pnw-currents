@@ -4,7 +4,7 @@ import './TopNav.css'
 export default class TopNav extends Component {
     NAVIGATION_PAGES = ['map', 'filter'];
     NAVIGATION_LABELS = [
-        'Map',
+        'RegionMap',
         'Find best slack'
     ];
 
@@ -36,17 +36,21 @@ export default class TopNav extends Component {
 
     nextPage() {
         if (this.state.currentPageIdx < this.NAVIGATION_PAGES.length - 1) {
+            var newCurrentPageIdx = this.state.currentPageIdx + 1;
             this.setState({
-                currentPageIdx: this.state.currentPageIdx + 1
+                currentPageIdx: newCurrentPageIdx
             });
+            this.props.onPageChange(this.NAVIGATION_PAGES[newCurrentPageIdx]);
         }
     }
 
     prevPage() {
         if (this.state.currentPageIdx > 0) {
+            var newCurrentPageIdx = this.state.currentPageIdx - 1;
             this.setState({
-                currentPageIdx: this.state.currentPageIdx - 1
+                currentPageIdx: newCurrentPageIdx
             });
+            this.props.onPageChange(this.NAVIGATION_PAGES[newCurrentPageIdx]);
         }
     }
 }
