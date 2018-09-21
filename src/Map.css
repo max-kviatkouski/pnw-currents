@@ -1,7 +1,16 @@
 .mapboxgl-canvas-container {
     position: relative;
+    height: 90%;
 }
 
 canvas.mapboxgl-canvas {
     left: 0;
+}
+
+.mapboxgl-map {
+    height: 90%;
+}
+
+#map-container {
+    height: 100%;
 }

@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import TopNav from './TopNav.js';
+import Nav from './TopNav.js';
 import RegionMap from "./RegionMap";
 import SearchForm from "./SearchForm";
 
@@ -32,15 +32,15 @@ class App extends Component {
 
     render() {
         return (
-            <div className="App">
-                <header className="App-header" id="nav-header">
-                    <TopNav
-                        onPageChange={this.handlePageChange}/>
-                </header>
-                <section id="one" className="wrapper special">
-                    {this.state.pageContent}
-                </section>
-            </div>
+                <div className="App">
+                    <section id="one" className="wrapper special">
+                        {this.state.pageContent}
+                    </section>
+                    <footer className="footer">
+                        <Nav
+                            onPageChange={this.handlePageChange}/>
+                    </footer>
+                </div>
         );
     }
 }
