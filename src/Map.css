@@ -1,0 +1,7 @@
+.mapboxgl-canvas-container {
+    position: relative;
+}
+
+canvas.mapboxgl-canvas {
+    left: 0;
+}

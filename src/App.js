@@ -9,7 +9,7 @@ class App extends Component {
         super(props);
         this.state = {
             pageContent: <RegionMap/>
-        }
+        };
         this.handlePageChange = this.handlePageChange.bind(this);
         this.loadPageComponents = this.loadPageComponents.bind(this);
     }
@@ -40,9 +40,6 @@ class App extends Component {
                 <section id="one" className="wrapper special">
                     {this.state.pageContent}
                 </section>
-                <p className="App-intro">
-                    To get started, edit <code>src/App.js</code> and save to reload.
-                </p>
             </div>
         );
     }
